@@ -57,11 +57,11 @@ export default function StackingLayout() {
   );
 }
 
-// 2. The Section Structure
+// 2. The Section Structure (Updated to accept HTMLDivElement | null)
 interface SectionProps {
   section: { id: number; title: string; subtitle: string; bg: string; text: string };
   index: number;
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>; // Fixed line
 }
 
 const StackingSection = ({ section, index, containerRef }: SectionProps) => {
@@ -70,7 +70,7 @@ const StackingSection = ({ section, index, containerRef }: SectionProps) => {
   // Tie scroll progress to the local parent container rather than the window
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    container: containerRef, // crucial for calculating scroll within 'overflow-y-auto'
+    container: containerRef, 
     offset: ["start start", "end start"],
   });
 
@@ -99,4 +99,4 @@ const StackingSection = ({ section, index, containerRef }: SectionProps) => {
       </motion.div>
     </div>
   );
-}
+};
