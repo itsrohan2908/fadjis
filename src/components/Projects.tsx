@@ -140,9 +140,9 @@ export default function Projects() {
         {/* UNIVERSAL HORIZONTAL SCROLL (Sticky Linked for all devices) */}
         <div ref={targetRef} className="relative h-[400vh] md:h-[500vh]">
           {/* Sticky wrapper locks into the viewport */}
-          <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+          <div className="sticky top-0 flex h-dvh items-center overflow-hidden">
             
-            <motion.div style={{ x }} className="flex w-max gap-12 md:gap-24 px-[10vw]">
+            <motion.div style={{ x }} className="flex items-center w-max gap-12 md:gap-24 px-[10vw]">
               
               {/* Intro Lead */}
               <div className="w-[60vw] md:w-[30vw] flex flex-col justify-center shrink-0">
