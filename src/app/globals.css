@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@config "../../tailwind.config.ts";
+
+@layer base {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+  
+  body {
+    /* Apply our luxury palette globally and enable smooth antialiasing */
+    @apply bg-luxury-white text-luxury-black antialiased;
+  }
+
+  /* 
+   * Immersion pass: Premium Text Selection 
+   * Inverts the high-contrast luxury colors.
+   */
+  ::selection {
+    @apply bg-luxury-black text-luxury-white;
+  }
+  ::-moz-selection {
+    @apply bg-luxury-black text-luxury-white;
+  }
+
+  /* 
+   * Immersion pass: Hide scrollbar but keep scroll functionality. 
+   * This pairs flawlessly with @studio-freight/lenis.
+   */
+  ::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+    display: none;
+  }
+
+  * {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+}
+
+/* 
+ * Lenis Recommended Reset 
+ * Ensures scroll-snapping and visual bugs do not conflict with hijacked smooth scrolling 
+ */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* 
+ * Desktop Cursor Override 
+ * Erases native cursors on fine-pointer devices in favor of our CustomCursor overlay
+ */
+@media (pointer: fine) {
+  body, body * {
+    cursor: none !important;
+  }
+}
