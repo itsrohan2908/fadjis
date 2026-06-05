@@ -4,6 +4,7 @@ import { useRef, useState, useContext } from "react";
 import { motion, useScroll, useTransform, useMotionTemplate, AnimatePresence } from "framer-motion";
 import ProjectDetail, { ProjectData } from "./ProjectDetail";
 import { ScrollSnapContext } from "./StackingWrappers";
+import AnimatedBackground from "./AnimatedBackground";
 
 // Enriched mock data matching the new ProjectData structure
 const projects: ProjectData[] = [
@@ -142,7 +143,9 @@ export default function Projects() {
           {/* Sticky wrapper locks into the viewport */}
           <div className="sticky top-0 flex h-dvh items-center overflow-hidden">
             
-            <motion.div style={{ x }} className="flex items-center w-max gap-12 md:gap-24 px-[10vw]">
+            <AnimatedBackground className="opacity-80 pointer-events-none" />
+            
+            <motion.div style={{ x }} className="flex items-center w-max gap-12 md:gap-24 px-[10vw] relative z-10">
               
               {/* Intro Lead */}
               <div className="w-[60vw] md:w-[30vw] flex flex-col justify-center shrink-0">

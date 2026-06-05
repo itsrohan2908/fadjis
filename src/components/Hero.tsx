@@ -3,6 +3,7 @@
 import { useEffect, useRef, useContext } from "react";
 import { motion, useScroll, useTransform, useMotionValue, animate } from "framer-motion";
 import { ScrollSnapContext } from "./StackingWrappers";
+import AnimatedBackground from "./AnimatedBackground";
 
 const TEXT = "FADJIS";
 const CHARS = TEXT.split("");
@@ -61,7 +62,9 @@ export default function Hero() {
       ref={containerRef}
       className="relative w-full h-screen bg-luxury-white text-luxury-black z-0"
     >
-      <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center">
+      <AnimatedBackground className="opacity-80" />
+      
+      <div className="sticky top-0 w-full h-screen overflow-hidden flex items-center justify-center z-10">
         
         <motion.div
           style={{
