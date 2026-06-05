@@ -20,7 +20,7 @@ export function ScrollSnapContainer({ children }: { children: React.ReactNode })
         id="main-scroll-container"
         ref={containerRef}
         data-lenis-prevent="true"
-        className="relative h-screen w-full overflow-y-auto snap-y snap-mandatory scroll-smooth"
+        className="relative h-[100dvh] w-full overflow-y-auto overflow-x-clip snap-y snap-mandatory scroll-smooth"
       >
         {children}
       </div>
